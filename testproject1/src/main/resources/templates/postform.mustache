@@ -1,0 +1,44 @@
+{{>layouts/header}}
+
+<h1>post test</h1>
+멤버1 맵으로 처리
+<form action="/api/v1/post-api/member" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+
+    <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
+<div id="result"></div>
+
+<br>
+<br>
+멤버2 dto로 처리
+<form action="/api/v1/post-api/member2" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+
+    <div>
+        <label for="email">email:</label>
+        <input type="text" id="email" name="email" required>
+    </div>
+    <div>
+        <label for="organization">Name:</label>
+        <input type="text" id="organization" name="organization" required>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
+<div id="result"></div>
+
+{{>layouts/footer}}

@@ -10,10 +10,10 @@ import studio.thinkground.testproject1.dto.MemberDto;
 
 import java.util.Map;
 
-@RequestMapping("api/vi/")
-@Controller()
+@RequestMapping("api/vi/get/")
+@Controller
 public class GetController {
-    //http://localhost:8080/api/vi/hello
+    //http://localhost:8080/api/vi/get/hello
     @GetMapping("hello")
     public String getHello(Model model) {
 
@@ -36,7 +36,7 @@ public class GetController {
         return "testvalue";
     }
 
-    //http://localhost:8080/api/vi/valiable2/2525
+    //http://localhost:8080/api/vi/get/valiable2/2525
     @GetMapping("valiable2/{valiable}")
     public String valiable2(@PathVariable String valiable, Model model) {
 
@@ -45,7 +45,7 @@ public class GetController {
     }
 
 
-    //http://localhost:8080/api/vi/request1?name=kim&email=aga@google&organizaion=aroundhub
+    //http://localhost:8080/api/vi/get/request1?name=kim&email=aga@google&organizaion=aroundhub
     @GetMapping(value = "/request1")
     public String getRequesParam3(@RequestParam String name,
                                   @RequestParam String email,
@@ -56,7 +56,7 @@ public class GetController {
     }
 
 
-    //http://localhost:8080/api/vi/request2?key1=value1&key2=value2
+    //http://localhost:8080/api/vi/get/request2?key1=value1&key2=value2
     @GetMapping(value = "/request2")
     public String getRequesParam3(@RequestParam Map<String, String> param1,Model model) {
         StringBuilder sb = new StringBuilder();
