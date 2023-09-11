@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import studio.thinkground.testproject1.dto.MemberDto;
+import studio.thinkground.testproject1.dto.MemberDTO;
 
 @Controller
 @RequestMapping("/api/v1/post-api")
@@ -38,7 +38,7 @@ public class PostController {
 
     // http://localhost:8080/api/v1/post-api/member2
     @PostMapping(value = "/member2")
-    public String postMemberDto(MemberDto memberDTO,Model model) {
+    public String postMemberDto(MemberDTO memberDTO, Model model) {
 
 
         model.addAttribute("value",memberDTO.toString());

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import studio.thinkground.testproject1.dto.MemberDto;
+import studio.thinkground.testproject1.dto.MemberDTO;
 
 import java.util.Map;
 
@@ -71,7 +71,7 @@ public class GetController {
 
     //http://localhost:8080/api/vi/request3?name=kim&email=aga@google&organizaion=aroundhub
     @GetMapping("request3")
-    public String request3(MemberDto memberDto, Model model) {
+    public String request3(MemberDTO memberDto, Model model) {
 
         model.addAttribute("value", memberDto);
         return "testvalue";

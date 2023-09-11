@@ -21,3 +21,7 @@ Ztestproject1/src/main/java/studio/thinkground/testproject1/controller/HelloCont
 Mtestproject1/src/main/java/studio/thinkground/testproject1/dto/MemberDto.java,e\f\ef4dd2d084e0290352a71f9c3b159652e55bbf4f
 ˆ
 Xtestproject1/src/main/java/studio/thinkground/testproject1/controller/GetController.java,5\3\5335894c37a0fec81503113f49f14b4ab7ce4d26
+‹
+[testproject1/src/main/java/studio/thinkground/testproject1/config/SwaggerConfiguration.java,a\0\a032097c0b5fff64e06354f6db19cba2b7f756b6
+‰
+Ytestproject1/src/main/java/studio/thinkground/testproject1/controller/PostController.java,5\a\5a51c459cba540ff438cd972eb8f29272a2dc4dc
