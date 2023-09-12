@@ -4,6 +4,8 @@ package studio.thinkground.testproject1.controller;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +24,7 @@ import studio.thinkground.testproject1.service.ProductService;
 @RequestMapping("/api/v1/product-api")
 public class ProductController {
 
-
+    private final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
     private final ProductService productService;
 
     @Autowired
@@ -34,7 +36,17 @@ public class ProductController {
     @GetMapping(value = "/product/{productId}")
     public ProductDto getProduct(@PathVariable String productId) {
 
-        return productService.getProduct(productId);
+        long startTime = System.currentTimeMillis();
+        LOGGER.info("[getProduct] perform {} of Around Hub API.", "getProduct");
+
+        ProductDto productDto = productService.getProduct(productId);
+
+        LOGGER.info(
+                "[getProduct] Response :: productId = {}, productName = {}, productPrice = {}, productStock = {}, Response Time = {}ms",
+                productDto.getProductId(),
+                productDto.getProductName(), productDto.getProductPrice(), productDto.getProductStock(),
+                (System.currentTimeMillis() - startTime));
+        return productDto;
     }
 
     // http://localhost:8080/api/v1/product-api/product
