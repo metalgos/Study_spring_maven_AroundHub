@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import studio.thinkground.testproject1.data.dto.ProductDto;
 import studio.thinkground.testproject1.service.ProductService;
 
+import javax.validation.Valid;
+
 
 @RestController
 @RequestMapping("/api/v1/product-api")
@@ -52,13 +54,29 @@ public class ProductController {
     // http://localhost:8080/api/v1/product-api/product
 
     @PostMapping(value = "/product")
-    public ProductDto createProduct(@RequestBody ProductDto productDto) {
+    public ResponseEntity<ProductDto> createProduct(@Valid @RequestBody ProductDto productDto) {
+
+        // Validation Code Example 기존 벨리데이션 @Valid 어노테이션 이용하지 않는 레거시 검증코드.
+
+        /*
+        if (productDto.getProductId().equals("") || productDto.getProductId().isEmpty()) {
+            LOGGER.error("[createProduct] failed Response :: productId is Empty");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(productDto);
+        }
+*/
         String productId = productDto.getProductId();
         String productName = productDto.getProductName();
         int productPrice = productDto.getProductPrice();
         int productStock = productDto.getProductStock();
 
-        return productService.saveProduct(productId,productName,productPrice,productStock);
+        ProductDto response = productService
+                .saveProduct(productId, productName, productPrice, productStock);
+
+        LOGGER.info(
+                "[createProduct] Response >> productId : {}, productName : {}, productPrice : {}, productStock : {}",
+                response.getProductId(), response.getProductName(), response.getProductPrice(),
+                response.getProductStock());
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     // http://localhost:8080/api/v1/product-api/product/{productId}
