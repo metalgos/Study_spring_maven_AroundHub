@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import studio.thinkground.testproject1.common.exception.AroundHubException;
 import studio.thinkground.testproject1.data.dto.ProductDto;
 import studio.thinkground.testproject1.service.ProductService;
 
@@ -84,6 +85,11 @@ public class ProductController {
     @DeleteMapping(value = "/product/{productId}")
     public ProductDto deleteProduct(@PathVariable String productId) {
         return null;
+    }
+
+    @PostMapping(value = "/product/exception")
+    public void exceptionTest() throws AroundHubException {
+        throw new AroundHubException(ExceptionClass.PRODUCT, HttpStatus.FORBIDDEN, "접근이 금지되었습니다.");
     }
 
 }
